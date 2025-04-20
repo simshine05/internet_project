@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>여행 설문 폼</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email1").value;
+      const name = document.getElementById("name1").value;
+      const message = document.getElementById("message").value;
+      const destination = document.getElementById("destination").value;
+      const style = document.querySelector('input[name="style"]:checked')?.value || "";
+      const companion = document.getElementById("companion").value;
+
+      // 체크된 체크리스트들 값 모으기
+      const checklistNodes = document.querySelectorAll('input[name="checklist"]:checked');
+      const checklist = Array.from(checklistNodes).map(el => el.value).join(", ");
+
+      // fetch로 전송
+      fetch("https://script.google.com/macros/s/AKfycbzCIdFB7L92P2pV08JJ8P6SkbtGpJMvCCga0YwCIezvTlf5AYQRRpWSzRYH1uEgfEYtfg/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&destination=${encodeURIComponent(destination)}&style=${encodeURIComponent(style)}&companion=${encodeURIComponent(companion)}&checklist=${encodeURIComponent(checklist)}`
+      }).then(() => {
+        alert("입력하신 정보가 성공적으로 전송되었습니다!");
+        document.querySelector("form").reset(); // 폼 초기화
+      }).catch(error => {
+        alert("전송 중 오류가 발생했습니다: " + error.message);
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>가볼만한 여행지</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>여행 설문 폼</h2>
+      <p class="overview-box">
+        다음 여행을 준비 중이신가요? 아래 설문을 작성해주시면 당신의 여행 스타일에 맞는 추천지를 제안해드립니다!
+      </p>
+
+      <form onsubmit="submitForm(event)">
+        <!-- fieldset 1 -->
+        <fieldset>
+          <legend>기본 정보</legend>
+
+          <label for="email1">이메일:</label><br>
+          <input type="email" id="email1" name="email" placeholder="example@email.com" required><br><br>
+
+          <label for="name1">이름:</label><br>
+          <input type="text" id="name1" name="name" placeholder="홍길동" required><br><br>
+
+          <label for="destination">가고 싶은 지역:</label><br>
+          <input list="places" id="destination" name="destination" placeholder="예: 런던"><br>
+          <datalist id="places">
+            <option value="런던">
+            <option value="레이캬비크">
+            <option value="파리">
+            <option value="로마">
+          </datalist><br><br>
+        </fieldset>
+
+        <!-- fieldset 2 -->
+        <fieldset>
+          <legend>여행 선호</legend>
+
+          <label>여행 스타일:</label><br>
+          <input type="radio" name="style" value="힐링" required> 힐링
+          <input type="radio" name="style" value="모험"> 모험
+          <input type="radio" name="style" value="도시탐방"> 도시탐방<br><br>
+
+          <label for="companion">동행:</label><br>
+          <select id="companion" name="companion" required>
+            <option value="">-- 선택하세요 --</option>
+            <option value="혼자">혼자</option>
+            <option value="친구">친구</option>
+            <option value="가족">가족</option>
+          </select><br><br>
+
+          <label>준비물 체크:</label><br>
+          <input type="checkbox" name="checklist" value="여권"> 여권
+          <input type="checkbox" name="checklist" value="카메라"> 카메라
+          <input type="checkbox" name="checklist" value="여행 가이드북"> 여행 가이드북<br><br>
+        </fieldset>
+
+        <label for="message">하고 싶은 말:</label><br>
+        <textarea id="message" name="message" rows="4" placeholder="자유롭게 의견을 남겨주세요!" required></textarea><br><br>
+
+        <button type="submit">제출</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    심빛나, 이메일: simshine05@gmail.com
+  </footer>
+</body>
+</html>

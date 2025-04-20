@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"> 
+  <title>추천 여행지</title>
+  <link rel="stylesheet" href="style.css"> <!-- 외부 CSS 연결 -->
+</head>
+<body>
+  
+  <!-- 페이지 상단 제목 영역 -->
+  <header>
+    <h1>가볼만한 여행지</h1>
+  </header>
+
+  <main>
+    <hr>
+
+    <!-- 페이지 내비게이션 목차 -->
+    <section>
+      <h3>페이지 목차</h3>
+      <ul>
+        <li><a href="#overview">페이지 개요</a></li>
+        <li><a href="#travel_list">여행지 목록</a></li>
+        <li><a href="#travel_detail">여행지 상세 정보</a></li>
+        <li><a href="form.html">여행 설문 폼</a></li> <!-- form.html로 연결 -->
+      </ul>
+    </section>
+
+    <hr>
+
+    <!-- 개요 영역 -->
+    <section id="overview">
+      <h2>개요</h2>
+      <p>
+        대학생 종강은 <mark>7월</mark>부터!!<br>
+        종강하면 힐링 해야죠.<br>
+        집에만 있지 말고 여행이라도 떠나볼까요?
+      </p>
+      <div class="overview-box">
+        아래의 여행지 리스트는 트립어드바이저에서 <span style="color:red">다음번 휴가를 위한 인기 여행지</span> 리스트에서 뽑았습니다.
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- 간단한 여행지 목록 -->
+    <section id="travel_list">
+      <h2>전국 여행지 목록 (from. <a href="https://www.tripadvisor.co.kr/" target="_blank">트립어드바이저</a>)</h2>
+      <ol>
+        <li><a href="pages/rome.html" title="링크를 클릭하시면 로마 상세페이지로 이동합니다.">로마</a></li>
+        <li><a href="pages/paris.html" title="링크를 클릭하시면 파리 상세페이지로 이동합니다.">파리</a></li>
+        <li><a href="pages/lasvegas.html" title="링크를 클릭하시면 라스베이거스 상세페이지로 이동합니다.">라스베이거스</a></li>
+        <li><a href="pages/reykjavik.html" title="링크를 클릭하시면 레이캬비크 상세페이지로 이동합니다.">레이캬비크</a></li>
+        <li><a href="pages/london.html" title="링크를 클릭하시면 런던 상세페이지로 이동합니다.">런던</a></li>
+      </ol>
+    </section>
+
+    <hr>
+
+    <!-- 여행지에 대한 상세 정보 -->
+    <section id="travel_detail">
+      <h2>여행지 상세 정보</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>대표이미지</th>
+            <th>장소</th>
+            <th>즐길거리</th>
+            <th>위치</th>
+            <th>소개</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 각 행은 하나의 여행지를 나타냄 -->
+          <tr>
+            <td><a href="pages/rome.html"><img src="./media/rome.jpg" alt="로마" width="100" height="100" title="이미지를 클릭하면 로마 상세페이지로 이동합니다."></a></td>
+            <td>로마</td>
+            <td>콜로세움, 판테온, 트레비 분수</td>
+            <td>이탈리아</td>
+            <td>온 도시에 유적이 있고, 거의 모든 광장에 걸작 조각이 있으며, 맛있는 음식이 있다.</td>
+          </tr>
+          <tr>
+            <td><a href="pages/paris.html"><img src="./media/paris.jpg" alt="파리" width="100" height="100" title="이미지를 클릭하면 파리 상세페이지로 이동합니다."></a></td>
+            <td>파리</td>
+            <td>에펠 탑, 루브르 박물관, 개선문</td>
+            <td>프랑스</td>
+            <td>로맨틱한 휴가를 보낼 수 있는 도시. 거대한 석재와 연철로 지어진 건물, 센강의 강둑은 영화의 한 장면 같다.</td>
+          </tr>
+          <tr>
+            <td><a href="pages/lasvegas.html"><img src="./media/lasvegas.jpg" alt="라스베이거스" width="100" height="100" title="이미지를 클릭하면 라스베이거스 상세페이지로 이동합니다."></a></td>
+            <td>라스베이거스</td>
+            <td>벨라지오 분수, high roller, 레드 록 캐니언 국립 보존 지구</td>
+            <td>미국</td>
+            <td>미슐랭 맛집, 24시간 결혼식장, 거대하고 아름다운 시가지, 슬롯머신까지 볼 수 있다. 유흥을 즐기지 않는 이들과 가족을 위한 여행지로도 사랑받고 있다.</td>
+          </tr>
+          <tr>
+            <td><a href="pages/reykjavik.html"><img src="./media/reykjavik.jpg" alt="레이캬비크" width="100" height="100" title="이미지를 클릭하면 레이캬비크 상세페이지로 이동합니다."></a></td>
+            <td>레이캬비크</td>
+            <td>sun voyager, hallgrimskirkja, laugavegur</td>
+            <td>아이슬란드</td>
+            <td>게이시르 간헐천 지대, 굴포스 폭포, 팅크베틀리르 국립공원을 비롯한 대자연으로 떠나는 모험의 관문이다. 아이슬란드 문화의 정취를 느끼며 며칠간 여행을 즐길만한 도시이다.</td>
+          </tr>
+          <tr>
+            <td><a href="pages/london.html"><img src="./media/london.jpg" alt="런던" width="100" height="100" title="이미지를 클릭하면 런던 상세페이지로 이동합니다."></a></td>
+            <td>런던</td>
+            <td>런던 타워, 셰익스피어 글로브 시어터, 세인트 폴 대성당</td>
+            <td>영국</td>
+            <td>예술, 역사, 문화 등 분야를 가리지 않고 모든 것의 중심에 있는 거대한 도시이다. 지역마다 고유한 분위기가 있다는 차별점이 있다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- 페이지 제작자 정보 표시 -->
+  <footer>
+    페이지 제작자: 심빛나, 이메일: simshine05@gmail.com, 여행지를 추천하는 페이지입니다.
+  </footer>
+</body>
+</html>
