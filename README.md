@@ -12,7 +12,7 @@
 - 웹폼을 통한 사용자 정보 입력 기능
 
 ## 배포 링크 (GitHub Pages)
-https://simshine05.github.io/project/
+https://simshine05.github.io/internet_project/
 
 ## 제작자 정보
 - 이름: 심빛나
